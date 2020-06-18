@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"> 
+    <style>
+      .sample {
+        display: flex;
+        margin-bottom: 1em;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Audio controls allow seek beyond end of Vorbis Audio recording, displays incorrect timing information
+    </p>
+    <p>
+      <div class="sample">
+        <audio controls="controls" src="recording.oga"></audio>
+        ⇠ recording.oga (affected)
+      </div>
+      <div class="sample">
+        <audio controls="controls" src="recording.mp3"></audio>
+        ⇠ recording.mp3 (unaffected)
+      </div>
+    </p>
+    <p>
+      Steps to reproduce:
+      <ol>
+        <li>Click and drag slider thumb for recording.oga towards the end of the track</li>
+        <li>Continue dragging, beyond the end of track</li>
+        <li>Observe audio control shows incorrect timing information</li>
+        <li>Repeat steps for recording.mp3</li>
+        <li>Observe audio control works as expected</li>
+      </ol>
+    </p>
+    <p>
+      Affected browsers:
+      <ul>
+        <li>Edge (Chromium) 85.0.545.0</li>
+        <li>Chrome 83.0.4103.106</li>
+        <li>Brave 1.10.93 (Chromium: 83.0.4103.106)</li>
+      </ul>
+
+      Unaffected browsers:
+      <ul>
+        <li>Edge (legacy) 18.19041</li>
+        <li>Firefox 77.0.1</li>
+      </ul>
+    </p>
+  </body>
+</html>
